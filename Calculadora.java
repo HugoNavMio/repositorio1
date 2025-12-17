@@ -1,8 +1,12 @@
 public class Calculadora {
 	public static void main(String[] args) {
+		if (args.length == 1 && args[0].equals("help")) {
+			help();
+			System.exit(0);
+		}
 		if (args.length != 3) {
 			System.out.println("La calculadora necesita 3 parámetros.");
-			System.out.println("USO: java Calculadora operacion num1 num2.");
+			uso();
 			System.exit(-1);
 		}
 
@@ -19,5 +23,13 @@ public class Calculadora {
 		};
 
 		System.out.printf("%.2f %s %.2f = %.2f\n", num1, operacion, num2, resultado);
+	}
+
+	public static void uso() {
+		System.out.println("USO: java Calculadora operacion num1 num2.");
+	}
+
+	public static void help() {
+		System.out.println("Operaciones soportadas: add (suma) / sub (resta) / mul (multiplicación) / div (división).");
 	}
 }
