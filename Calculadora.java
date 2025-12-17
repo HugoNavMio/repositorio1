@@ -1,9 +1,15 @@
 public class Calculadora {
 	public static void main(String[] args) {
+		if (args.length == 1 && args[0].equals("version")) {
+			version();
+			System.exit(0);
+		}
+
 		if (args.length == 1 && args[0].equals("help")) {
 			help();
 			System.exit(0);
 		}
+
 		if (args.length != 3) {
 			System.out.println("La calculadora necesita 3 parámetros.");
 			uso();
@@ -30,6 +36,10 @@ public class Calculadora {
 	}
 
 	public static void help() {
-		System.out.println("Operaciones soportadas: add (suma) / sub (resta) / mul (multiplicación) / div (división).");
+		System.out.println("Operaciones soportadas: add (suma) / sub (resta) / mul (multiplicación) / div (división)");
+	}
+
+	public static void version() {
+		System.out.println("Versión: 0.2.0");
 	}
 }
