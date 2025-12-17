@@ -1,12 +1,14 @@
 public class Calculadora {
-	public static void main(String[] args) {
-		if (args.length == 1 && args[0].equals("version")) {
-			version();
-			System.exit(0);
-		}
+	private static final String VERSION = "0.2.0";
 
-		if (args.length == 1 && args[0].equals("help")) {
-			help();
+	public static void main(String[] args) {
+		if (args.length == 1) {
+			String argumento = args[0];
+			switch (argumento) {
+				case "help" -> help();
+				case "version" -> version();
+				default -> uso();
+			}
 			System.exit(0);
 		}
 
@@ -32,7 +34,7 @@ public class Calculadora {
 	}
 
 	public static void uso() {
-		System.out.println("USO: java Calculadora operacion num1 num2.");
+		System.out.println("USO: java Calculadora <operacion> <num1> <num2>.");
 	}
 
 	public static void help() {
@@ -40,6 +42,6 @@ public class Calculadora {
 	}
 
 	public static void version() {
-		System.out.println("Versión: 0.2.0");
+		System.out.println(VERSION);
 	}
 }
